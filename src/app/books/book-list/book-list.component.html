@@ -1,3 +1,6 @@
 <p>
   book-list works!
 </p>
+<ul *ngIf="books">
+  <li *ngFor="let book of books">{{book.title}}</li>
+</ul>
