@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +15,8 @@ import { MyNavComponent } from './my-nav/my-nav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AboutModule
+    AboutModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
