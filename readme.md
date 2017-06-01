@@ -6,11 +6,13 @@
 
 #### hint
 
+#### my-nav.component.html
 <pre>
     &lt;li>&lt;a [routerLink]="['books']">Books&lt;/a>&lt;/li>
     &lt;li>&lt;a [routerLink]="['about']">About&lt;/a>&lt;/li>
 </pre>
 
+#### app-routing.module.ts
 <pre>
   {
     path: 'books',
