@@ -16,7 +16,7 @@
         &lt;span class="icon-bar">&lt;/span>
         &lt;span class="icon-bar">&lt;/span>
       &lt;/button>
-      &lt;a class="navbar-brand">ng2lala finder&lt;/a>
+      &lt;a class="navbar-brand">angular-starter&lt;/a>
     &lt;/div>
 
     &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
