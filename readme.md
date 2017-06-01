@@ -2,6 +2,7 @@
 * Setup routes
 * Set `/books` as default
 * Set `/about` as fallback
+* remove `<books></books>` from app.component.html
 
 
 #### hint
