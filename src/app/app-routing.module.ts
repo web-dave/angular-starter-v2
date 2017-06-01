@@ -7,11 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'books',
-    component: BooksComponent,
-    children: [{
-      path: '',
-      component: BookListComponent
-    }]
+    loadChildren: './books/books.module#BooksModule'
   },
   {
     path: 'about',

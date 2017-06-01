@@ -1,31 +1,30 @@
-* Generate a `BookListComponent` into your Books Module
-* Set `/books` as a root of ChildRouting
-* Check the DevTools and the hints!
+* copy `/books` routing rules to `books-routing.module`
+* and set `path: 'books'` to  `path: ''`
+* In `app-routing.module` set `/books` to loadChildren
+* Remove `BooksModule` from `AppModule` (completely)
 
 
 #### hint
 
-`ng g c books/book-list`
-
-#### my-nav.component.html
 <pre>
 const routes: Routes = [
-  {
-    path: 'books',
+   {
+    path: '',
     component: BooksComponent,
     children: [{
       path: '',
       component: BookListComponent
     }]
-  },
-  ...
+  }
 ];
 </pre>
 
 <pre>
-  &lt;p>
-    book works!
-  &lt;/p>
-  &lt;router-outlet>&lt;/router-outlet>
+const routes: Routes = [
+  {
+    path: 'books',
+    loadChildren: './books/books.module#BooksModule'
+  },
+  ...
+];
 </pre>
-
