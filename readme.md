@@ -1,37 +1,54 @@
-* Generate a `nav` component with angular-cli
-* Use this new `nav` component in the `appComponnet` view
+* install bookmonkey-api
+* setup a npm script rest
+* check the api (http://localhost:4730/)
+* run bookmonkey-api in seperate cmd
+* Generate a `books` service in a shared folder with angular-cli
+* import Http from @angular/http and inject it (DI)
 
-#### hint
 
-`ng g c my-nav` 
-
-#### my-nav.component.html:
+#### hints
 <pre>
-&lt;nav class="navbar navbar-inverse">
-  &lt;div class="container-fluid">
-    &lt;div class="navbar-header">
-      &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-        &lt;span class="sr-only">Toggle navigation&lt;/span>
-        &lt;span class="icon-bar">&lt;/span>
-        &lt;span class="icon-bar">&lt;/span>
-        &lt;span class="icon-bar">&lt;/span>
-      &lt;/button>
-      &lt;a class="navbar-brand">angular-starter&lt;/a>
-    &lt;/div>
-
-    &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-      &lt;ul class="nav navbar-nav">
-        &lt;li>&lt;a>Search&lt;/a>&lt;/li>
-        &lt;li>&lt;a>About&lt;/a>&lt;/li>
-      &lt;/ul>
-    &lt;/div>
-  &lt;/div>
-&lt;/nav>
+  npm i --save-dev bookmonkey-api
+  ng g service shared/books
+  npm run rest
 </pre>
 
-#### app.component.html
+#### package.json:
 <pre>
-  <my-nav></my-nav>
+...
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "rest": "bookmonkey-api"
+  },
+  ...
+</pre>
+#### API:
+<pre>
+GET     /books          // Get all books
+GET     /books/:isbn    // Get a specific book by ISBN
+POST    /books          // Create a new book
+PUT     /books/:isbn    // Update a book by ISBN
+DELETE  /books/:isbn    // Delete a book by ISBN
+</pre>
 
-  <router-outlet></router-outlet>
-</pre
+<pre>
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+
+
+  restRoot = 'http://localhost:4730/books';
+
+  constructor(private http: Http) { }
+
+
+  getBooks() {
+    const url = this.restRoot;
+    return this.http.get(url)
+      .map(res => res.json());
+  }
+</pre>
