@@ -2,15 +2,14 @@
 * setup a npm script rest
 * check the api (http://localhost:4730/)
 * run bookmonkey-api in seperate cmd
-* Generate a `books` service in a shared folder with angular-cli
+* Generate a `books` service in a shared folder of `BooksModule`
 * import Http from @angular/http and inject it (DI)
 
 
 #### hints
 <pre>
   npm i --save-dev bookmonkey-api
-  ng g service shared/books
-  npm run rest
+  ng g service books/shared/books
 </pre>
 
 #### package.json:
@@ -27,6 +26,7 @@
   },
   ...
 </pre>
+ `npm run rest`
 #### API:
 <pre>
 GET     /books          // Get all books
