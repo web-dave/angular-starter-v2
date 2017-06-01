@@ -1,15 +1,23 @@
-## Start a new Project
+## Install bootstrap
+* install bootstrap
+* use it in your project
 
-* choose scss as csspreprocessor
-* define a prefix
-* add routing
-* start your app
-* open http://localhost:4200/
-#### hint
+#### every change on the project settings need a fresh `ng serve`  
+
+### hint
+
+`npm i --save bootstrap jquery`
+
+#### .angular-cli.json:
 <pre>
-
-ng new angular-starter --style=scss --prefix="" --routing 
-cd angular-starter 
-ng serve
-
+...
+      "styles": [
+        "styles.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
+      ],
+...
 </pre>
