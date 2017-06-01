@@ -21,7 +21,7 @@
 
     &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       &lt;ul class="nav navbar-nav">
-        &lt;li>&lt;a>Search&lt;/a>&lt;/li>
+        &lt;li>&lt;a>Books&lt;/a>&lt;/li>
         &lt;li>&lt;a>About&lt;/a>&lt;/li>
       &lt;/ul>
     &lt;/div>
