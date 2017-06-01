@@ -9,7 +9,7 @@
 #### hints
 <pre>
   npm i --save-dev bookmonkey-api
-  ng g service books/shared/books
+  ng g service books/shared/books -m=books/books.module
 </pre>
 
 #### package.json:
