@@ -14,6 +14,8 @@
 
 #### app-routing.module.ts
 <pre>
+
+const routes: Routes = [
   {
     path: 'books',
     component: BooksComponent
@@ -34,5 +36,6 @@
     path: '**', <-- Fallback allways the last route!
     redirectTo: '/about'
   }
+];
 </pre>
 
