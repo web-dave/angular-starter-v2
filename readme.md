@@ -1,42 +1,36 @@
-* Generate 2 sub Modules (about, books)
-* Generate for each of these Modules a Root Component named like the Module
-* Import the Modules into your `AppModule` (or use the **protip** while generating)
-* use `BooksComponent` in app.component.html and check the devTools
+* Set `routerLink` in `my-nav`
+* Setup routes
+* Set `/books` as default
+* Set `/about` as fallback
 
 
 #### hint
 
 <pre>
-ng g module books --routing 
-ng g module about --routing 
+    &lt;li>&lt;a [routerLink]="['books']">Books&lt;/a>&lt;/li>
+    &lt;li>&lt;a [routerLink]="['about']">About&lt;/a>&lt;/li>
 </pre>
 
-#### protip but ther is a bug so be carefull!
 <pre>
-ng g module books --routing -m=app.modules
-ng g module about --routing -m=app.modules
-</pre>
-<pre>
-ng g c books/books
-ng g c about/about
-</pre>
-
-#### app.component.html
-<pre>
-  &lt;my-nav>&lt;/my-nav>
-  &lt;books>&lt;/books>
-  &lt;router-outlet>&lt;/router-outlet>
+  {
+    path: 'books',
+    component: BooksComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  }
 </pre>
 
-#### BooksModule 
 <pre>
-@NgModule({
-  imports: [
-    CommonModule,
-    BooksRoutingModule
-  ],
-  exports: [BooksComponent], <-- !!
-  declarations: [BooksComponent]
-})
-export class BooksModule { }
+  {
+    path: '',
+    redirectTo: '/books',
+    pathMatch: 'full' <-- !!
+  },
+  {
+    path: '**', <-- Fallback allways the last route!
+    redirectTo: '/about'
+  }
 </pre>
+
