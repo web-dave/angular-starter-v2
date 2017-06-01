@@ -1,42 +1,31 @@
-* Set `routerLink` in `my-nav`
-* Setup routes
-* Set `/books` as default
-* Set `/about` as fallback
-* remove `<books></books>` from app.component.html
+* Generate a `BookListComponent` into your Books Module
+* Set `/books` as a root of ChildRouting
+* Check the DevTools and the hints!
 
 
 #### hint
 
+`ng g c books/book-list`
+
 #### my-nav.component.html
 <pre>
-    &lt;li>&lt;a [routerLink]="['books']">Books&lt;/a>&lt;/li>
-    &lt;li>&lt;a [routerLink]="['about']">About&lt;/a>&lt;/li>
-</pre>
-
-#### app-routing.module.ts
-<pre>
-
 const routes: Routes = [
   {
     path: 'books',
-    component: BooksComponent
+    component: BooksComponent,
+    children: [{
+      path: '',
+      component: BookListComponent
+    }]
   },
-  {
-    path: 'about',
-    component: AboutComponent
-  }
+  ...
+];
 </pre>
 
 <pre>
-  {
-    path: '',
-    redirectTo: '/books',
-    pathMatch: 'full' <-- !!
-  },
-  {
-    path: '**', <-- Fallback allways the last route!
-    redirectTo: '/about'
-  }
-];
+  &lt;p>
+    book works!
+  &lt;/p>
+  &lt;router-outlet>&lt;/router-outlet>
 </pre>
 
