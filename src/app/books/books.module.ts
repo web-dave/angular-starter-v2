@@ -8,6 +8,7 @@ import { BooksService } from './shared/books.service';
 import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { PagesPipe } from './shared/pages.pipe';
+import { OrderBtnDirective } from './shared/order-btn.directive';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { PagesPipe } from './shared/pages.pipe';
     BooksRoutingModule
   ],
   exports: [],
-  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, BookDetailsComponent, PagesPipe],
+  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, BookDetailsComponent, PagesPipe, OrderBtnDirective],
   providers: [BooksService]
 })
 export class BooksModule { }

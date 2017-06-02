@@ -1,16 +1,10 @@
-* Generate a `order-btn` directive
-* It should add abutton to buy this Book
+import { Directive, Input, ElementRef  } from '@angular/core';
 
+@Directive({
+  selector: '[orderBtn]'
+})
+export class OrderBtnDirective {
 
-#### hints
-<pre>
-  ng g d books/shared/order-btn
-</pre>
-
-
-#### order-btn.directive.ts
-<pre>
- 
   @Input()
   set orderBtn(value: string) {
     this.orderBtnElement.innerText = value;
@@ -22,11 +16,5 @@
   constructor(elementRef: ElementRef) {
     elementRef.nativeElement.appendChild(this.orderBtnElement);
   }
-</pre>
 
-#### book-details.component.html
-<pre>
-  &lt;div class="panel-body" orderBtn="Buy me!!">
-    ...
-  &lt;/div>
-</pre>
+}
