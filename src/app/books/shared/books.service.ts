@@ -1,5 +1,7 @@
+import { IBook } from './custom-types';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -9,8 +11,14 @@ export class BooksService {
   constructor(private http: Http) { }
 
 
-  getBooks() {
+  getBooks(): Observable<IBook[]> {
     const url = this.restRoot;
+    return this.http.get(url)
+      .map(res => res.json());
+  }
+
+  getBook(isbn): Observable<IBook> {
+    const url = `${this.restRoot}/${isbn}`;
     return this.http.get(url)
       .map(res => res.json());
   }

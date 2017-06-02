@@ -6,6 +6,7 @@ import { BooksComponent } from './books/books.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BooksService } from './shared/books.service';
 import { BookPreviewComponent } from './book-preview/book-preview.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { BookPreviewComponent } from './book-preview/book-preview.component';
     BooksRoutingModule
   ],
   exports: [],
-  declarations: [BooksComponent, BookListComponent, BookPreviewComponent],
+  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, BookDetailsComponent],
   providers: [BooksService]
 })
 export class BooksModule { }

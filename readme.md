@@ -1,34 +1,65 @@
-* Take a look at one Book Object [Link](http://localhost:4730/books/978-0-20163-361-0)
-* Generate a interface `custom-types`
-* Define two interface in this file
-* Use this interface as a type whenever we handle Books
+* Generate a `book-details` component
+* Click on a `book-preview` should bring you to this `book-details` component (`RoutParams`)
+* Get the Book from the Service and show all Details
+* You need a new Route.
 
 
 #### hints
 <pre>
-  ng g interface books/shared/custom-types
+  ng g c books/book-details
 </pre>
 
 
-#### custom-types.ts
+#### book-list.component.ts
 <pre>
-export interface IBook {
-  title: string;
-  subtitle: string;
-  isbn: string;
-  abstract: string;
-  numPages: number;
-  author: string;
-  publisher: IUser;
-}
+ constructor(
+    private booksService: BooksService, 
+    private router: Router) { }
 
-export interface IUser {
-  name: string;
-  url: string;
-}
+  selectBook(book: IBook) {
+    this.router.navigate(['/books', book.isbn]);
+  }
 </pre>
-#### e.g.
+#### books-routing.module.ts
 <pre>
-  books: IBook[];
-  @Input() book: IBook;
+  children: [{
+      path: '',
+      component: BookListComponent
+    }, {
+      path: ':isbn',
+      component: BookDetailsComponent
+    }]
+</pre>
+
+#### book-details.component.ts
+<pre>
+  constructor(
+      private booksService: BooksService,
+      private router: Router,
+      private route: ActivatedRoute) { }
+
+
+  ngOnInit() {
+    this.route
+      .params
+      .subscribe((params: {isbn: string}) => {
+        this.booksService.getBook(params.isbn)
+          .subscribe(b => {
+            console.log('!!', b);
+            this.book = b;
+          });
+      });
+  }
+</pre>
+
+#### book-details.component.html (example)
+<pre>
+&lt;div class="panel panel-default" *ngIf="book" >
+   &lt;div class="panel-heading">{{book.title}} ({{book.isbn}})&lt;/div>
+  &lt;div class="panel-body">
+    &lt;p>{{book.abstract}}  &lt;span class="badge">Seitenzahl: {{book.numPages}}&lt;/span> &lt;/p>
+    &lt;p>{{book.publisher.name}} ({{book.publisher.url}})&lt;/p>
+  &lt;/div>
+  &lt;div class="panel-footer">{{book.author}}&lt;/div>
+&lt;/div>
 </pre>

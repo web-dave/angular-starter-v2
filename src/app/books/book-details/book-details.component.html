@@ -1,0 +1,8 @@
+<div class="panel panel-default" *ngIf="book" >
+   <div class="panel-heading">{{book.title}} ({{book.isbn}})</div>
+  <div class="panel-body">
+    <p>{{book.abstract}}  <span class="badge">Seitenzahl: {{book.numPages}}</span> </p>
+    <p>{{book.publisher.name}} ({{book.publisher.url}})</p>
+  </div>
+  <div class="panel-footer">{{book.author}}</div>
+</div>
