@@ -1,5 +1,5 @@
 * Generate a `order-btn` directive
-* It should add abutton to buy this Book
+* It should add a button to buy this Book
 
 
 #### hints
