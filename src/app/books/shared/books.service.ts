@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class BooksService {
@@ -9,7 +10,7 @@ export class BooksService {
   constructor(private http: Http) { }
 
 
-  getBooks() {
+  getBooks(): Observable<any> {
     const url = this.restRoot;
     return this.http.get(url)
       .map(res => res.json());
