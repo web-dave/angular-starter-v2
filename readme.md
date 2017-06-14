@@ -1,9 +1,14 @@
+* Generate a `book-list` component with angular-cliI
 * Inject `BooksService` into `BookListComponent` (DI)
 * use `BooksService` in ngOnInit
 * show all Books in a list
 
 
 #### hints
+<pre>
+  ng g c books/book-list
+</pre>
+
 <pre>
   constructor(private booksService: BooksService) { }
 </pre>
