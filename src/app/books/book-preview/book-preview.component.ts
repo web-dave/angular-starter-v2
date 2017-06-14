@@ -1,17 +1,20 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'book-preview',
   templateUrl: './book-preview.component.html',
   styleUrls: ['./book-preview.component.scss']
 })
-export class BookPreviewComponent implements OnInit {
+export class BookPreviewComponent implements OnInit, OnChanges {
   @Input() book;
   @Output() bookselected = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ngOnChanges() {
+    // Fires on every @input change
   }
 
   selectThisBook() {
