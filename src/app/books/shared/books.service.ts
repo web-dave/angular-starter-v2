@@ -23,5 +23,11 @@ export class BooksService {
       .map(res => res.json());
   }
 
+  updateBook(book): Observable<IBook> {
+    const url = `${this.restRoot}/${book.isbn}`;
+    return this.http.patch(url, book)
+      .map(res => res.json());
+  }
+
 }
 

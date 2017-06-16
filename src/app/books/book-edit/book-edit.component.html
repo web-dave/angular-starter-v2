@@ -1,0 +1,46 @@
+<form *ngIf="book" #form="ngForm" (ngSubmit)="saveBook(form.value)">
+  <div class="form-group">
+
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" required minlength="6" [(ngModel)]="book.title" #title="ngModel">
+
+    <div [hidden]="!title.errors?.required || title.pristine">Enter a Title</div>
+  </div>
+  <div class="form-group">
+
+    <label for="subtitle">Subtitle</label>
+    <input type="text" id="subtitle" name="subtitle" required minlength="6" [(ngModel)]="book.subtitle" #subtitle="ngModel">
+
+    <div [hidden]="!subtitle.errors?.required || subtitle.pristine">Enter a Subtitle</div>
+  </div>
+  <div class="form-group">
+
+    <label for="isbn">isbn</label>
+    <input type="text" id="isbn" name="isbn" required minlength="6" [(ngModel)]="book.isbn" #isbn="ngModel">
+
+    <div [hidden]="!isbn.errors?.required || isbn.pristine">Enter a isbn</div>
+  </div>
+  <div class="form-group">
+
+    <label for="abstract">Abstract</label>
+    <textarea type="text" id="abstract" name="abstract" required minlength="6" [(ngModel)]="book.abstract" #abstract="ngModel"></textarea>
+
+    <div [hidden]="!abstract.errors?.required || abstract.pristine">Enter a Abstract</div>
+  </div>
+  <div class="form-group">
+
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author" required minlength="6" [(ngModel)]="book.author" #author="ngModel">
+
+    <div [hidden]="!author.errors?.required || author.pristine">Enter a Author</div>
+  </div>
+
+
+
+  <div>
+    <button type="submit" [disabled]="form.invalid">Save</button>
+    <a class="btn btn-default btn-sm" [routerLink]="['..']">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
+  </div>
+</form>
