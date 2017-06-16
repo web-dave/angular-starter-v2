@@ -1,5 +1,6 @@
-* Generate a `preload-delayed` service
+* Generate a `preload-delayed` class
 * Import `PreloadingStrategy`and `Route`
+* Provide it in your `AppMocule`
 * Implement `PreloadingStrategy`, `preload()`
 * add some data to  your routes 
 * set preloadingSTrategy in routingModule
@@ -8,7 +9,7 @@
 
 #### hints
 <pre>
-  ng g service shared/preload-delayed  -m="./app.module"
+  ng g class shared/preload-delayed
 </pre>
 
 <pre>
