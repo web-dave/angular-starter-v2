@@ -1,3 +1,4 @@
+import { LeaveGuard } from './shared/leave.guard';
 import { BookNewComponent } from './book-new/book-new.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
     },
     {
       path: 'new',
-      component: BookNewComponent
+      component: BookNewComponent,
+      canDeactivate: [LeaveGuard]
     },
     {
       path: ':isbn',

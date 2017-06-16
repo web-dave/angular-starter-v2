@@ -1,3 +1,4 @@
+import { LeaveGuard } from './shared/leave.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +31,6 @@ import { BookNewComponent } from './book-new/book-new.component';
     OrderBtnDirective,
     BookEditComponent,
     BookNewComponent],
-  providers: [BooksService]
+  providers: [BooksService, LeaveGuard]
 })
 export class BooksModule { }
