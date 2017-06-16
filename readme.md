@@ -1,24 +1,39 @@
-* Generate a `book-new` component
-* Add a new route
-* Import `ReactiveFormsModule` into BooksModule
-* Import `Validators`, `FormBuilder` and `FormGroup` into `BookNewComponent` 
-* Instantiate `FormBuilder` in a attribute via DI
-* define a attribute `form` with type `FormGroup`
-* Create a Form Model with `FormBuilder`
-* Extend BooksService to save new Book
+* Generate a `leave` guard
+* implement a canDeactivate Guard
+* Add it to the new route
+* You need a helper to check status of this Component
 
 
 
 #### hints
 <pre>
-  ng g d books/book-new
+  ng g guard books/shared/leave
 </pre>
 
 <pre>
     {
       path: 'new',
-      component: BookNewComponent
-    }
+      component: BookNewComponent,
+      canDeactivate: [LeaveGuard]
+    },
+</pre>
+
+<pre>
+import { BookNewComponent } from './../book-new/book-new.component';
+import { Injectable } from '@angular/core';
+import { CanDeactivate } from '@angular/router';
+
+@Injectable()
+export class LeaveGuard implements CanDeactivate&lt;BookNewComponent> {
+ canDeactivate(target: BookNewComponent) {
+   if (!target.isSaved()) {
+     return window.confirm('Do you really want to cancel?');
+   } else {
+     return true;
+   }
+ }
+}
+
 </pre>
 
 ##### books/book-list.component.html
