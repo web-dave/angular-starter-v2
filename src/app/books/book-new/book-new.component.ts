@@ -6,12 +6,10 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'book-new',
   templateUrl: './book-new.component.html',
-  styleUrls: ['./book-new.component.scss'],
-  providers: []
+  styleUrls: ['./book-new.component.scss']
 })
 export class BookNewComponent implements OnInit {
   form: FormGroup;
-  saved = false;
   constructor(
     private formBuilder: FormBuilder,
     private booksService: BooksService,
@@ -27,21 +25,13 @@ export class BookNewComponent implements OnInit {
         url: ['', Validators.required]
       })
     });
-
   }
 
-  saveBook(book) {
-    this.booksService.createBook(book)
+  saveBook() {
+    this.booksService.createBook(this.form.value)
           .subscribe(() => {
-            this.saved = true;
             this.router.navigate(['/books']);
           });
-  }
-
-  isDirty() {
-    if(!this.saved){
-      return this.form.dirty
-    }
   }
 
 }
