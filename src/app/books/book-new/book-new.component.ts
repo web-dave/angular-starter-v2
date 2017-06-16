@@ -27,8 +27,8 @@ export class BookNewComponent implements OnInit {
     });
   }
 
-  saveBook(book) {
-    this.booksService.createBook(book)
+  saveBook() {
+    this.booksService.createBook(this.form.value)
           .subscribe(() => {
             this.router.navigate(['/books']);
           });
