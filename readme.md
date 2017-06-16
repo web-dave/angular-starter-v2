@@ -1,47 +1,56 @@
-* Generate a `leave` guard
-* implement it as a canDeactivate Guard
-* Add it to the new route
-* You need a helper to check status of this Component
+* Generate a `preload-delayed` service
+* Import `PreloadingStrategy`and `Route`
+* Implement `PreloadingStrategy`, `preload()`
+* add some data to  your routes 
+* set preloadingSTrategy in routingModule
 
 
 
 #### hints
 <pre>
-  ng g guard books/shared/leave
+  ng g service shared/preload-delayed  -m="./app.module"
 </pre>
 
 <pre>
-import { BookNewComponent } from './../book-new/book-new.component';
-import { Injectable } from '@angular/core';
-import { CanDeactivate } from '@angular/router';
-
-@Injectable()
-export class LeaveGuard implements CanDeactivate&lt;BookNewComponent> {
- canDeactivate(target: BookNewComponent) {
-   if (!target.isSaved()) {
-     return window.confirm('Do you really want to cancel?');
-   } else {
-     return true;
-   }
- }
-}
-
+  providers: [PreloadDelayedService],
 </pre>
 
 <pre>
-    {
-      path: 'new',
-      component: BookNewComponent,
-      canDeactivate: [LeaveGuard]
-    },
-</pre>
+import { PreloadingStrategy, Route } from '@angular/router';
+import { Observable } from 'rxjs';
 
-<pre>
+export class PreloadDelayedService {
 
-  isSaved() {
-    if (!this.saved) {
-      return this.form.dirty;
+
+  preload(route: Route, fn: () => Observable<any>): Observable<any> {
+    console.log(route.data.preload);
+
+    if ((route.data !== undefined) && (route.data.preload)) {
+      return Observable.of(true).delay(3000).flatMap(() => fn());
     }
-    return true;
+    if (route.data.preload) {
+      return fn();
+    }
+
   }
+}
+</pre>
+
+<pre>
+   {
+    path: 'books',
+    loadChildren: './books/books.module#BooksModule',
+    data: {
+      preload: true
+    }
+  },
+</pre>
+
+<pre>
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadDelayedService})],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 </pre>

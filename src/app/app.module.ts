@@ -1,3 +1,4 @@
+import { PreloadDelayedService } from './shared/preload-delayed.service';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,7 +19,7 @@ import { MyNavComponent } from './my-nav/my-nav.component';
     AboutModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PreloadDelayedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

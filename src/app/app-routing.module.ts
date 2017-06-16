@@ -1,3 +1,4 @@
+import { PreloadDelayedService } from './shared/preload-delayed.service';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { AboutComponent } from './about/about/about.component';
 import { BooksComponent } from './books/books/books.component';
@@ -7,7 +8,10 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'books',
-    loadChildren: './books/books.module#BooksModule'
+    loadChildren: './books/books.module#BooksModule',
+    data: {
+      preload: true
+    }
   },
   {
     path: 'about',
@@ -25,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadDelayedService})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
