@@ -17,6 +17,7 @@
     }
 </pre>
 
+##### books/book-details.component.ts
 <pre>
   &lt;a [routerLink]="['edit']" class="btn btn-default btn-sm">
     &lt;span class="glyphicon glyphicon-pencil" aria-hidden="true">&lt;/span>
@@ -43,13 +44,30 @@
 
 </pre>
 
+##### books/book-edit.component.html
 <pre>
-  &lt;div>
-    &lt;button type="submit" [disabled]="form.invalid">Save&lt;/button>
-    &lt;a class="btn btn-default btn-sm" [routerLink]="['..']">
-      &lt;span class="glyphicon glyphicon-remove" aria-hidden="true">&lt;/span>
-    &lt;/a>
-  &lt;/div>
+  &lt;form *ngIf="book" #form="ngForm" (ngSubmit)="saveBook(form.value)">
+    &lt;div class="form-group">
+        &lt;label for="title">Title&lt;/label>
+        &lt;input 
+          type="text" 
+          id="title" 
+          name="title" 
+          required minlength="6" 
+          [(ngModel)]="book.title" 
+          #title="ngModel">
+        &lt;div [hidden]="!title.errors?.required || title.pristine">Enter a Title&lt;/div>
+    &lt;/div>
+      ...
+    &lt;div>
+      &lt;button type="submit" [disabled]="form.invalid">Save&lt;/button>
+      &lt;a class="btn btn-default btn-sm" [routerLink]="['..']">
+    &lt;span class="glyphicon glyphicon-remove" aria-hidden="true">&lt;/span>
+      &lt;/a>
+    &lt;/div>
+
+  &lt;/form>
+
 </pre>
 
 <pre>
