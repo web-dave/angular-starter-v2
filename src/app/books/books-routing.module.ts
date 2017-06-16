@@ -1,3 +1,4 @@
+import { BookNewComponent } from './book-new/book-new.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookListComponent } from './book-list/book-list.component';
@@ -12,6 +13,10 @@ const routes: Routes = [
     children: [{
       path: '',
       component: BookListComponent
+    },
+    {
+      path: 'new',
+      component: BookNewComponent
     },
     {
       path: ':isbn',

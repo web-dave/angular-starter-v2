@@ -4,3 +4,6 @@
 <div *ngIf="books">
   <book-preview *ngFor="let book of books" [book]="book" (bookselected)="selectBook($event)"></book-preview>
 </div>
+<a [routerLink]="['new']" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+</a>

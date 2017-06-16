@@ -29,5 +29,11 @@ export class BooksService {
       .map(res => res.json());
   }
 
+  createBook(book): Observable<IBook> {
+    const url = `${this.restRoot}`;
+    return this.http.post(url, book)
+      .map(res => res.json());
+  }
+
 }
 
