@@ -1,7 +1,7 @@
 import { PreloadingStrategy, Route } from '@angular/router';
 import { Observable } from 'rxjs';
 
-export class PreloadDelayedService {
+export class PreloadDelayedService implements PreloadingStrategy {
 
 
   preload(route: Route, fn: () => Observable<any>): Observable<any> {
