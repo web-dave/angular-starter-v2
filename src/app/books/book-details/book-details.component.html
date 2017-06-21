@@ -1,6 +1,6 @@
 <div class="panel panel-default" *ngIf="book" >
    <div class="panel-heading">{{book.title}} ({{book.isbn}})</div>
-  <div class="panel-body" orderBtn="Buy me!!">
+  <div class="panel-body" orderBtn="{{buyme| json}}">
     <p >{{book.abstract}}  <span class="badge">{{book.numPages | pages:'Seitenzahl'}}</span> </p>
     <p>{{book.publisher.name}} ({{book.publisher.url}})</p>
   </div>

@@ -5,11 +5,14 @@ import { Directive, Input, ElementRef, OnChanges, HostListener } from '@angular/
 })
 export class OrderBtnDirective implements OnChanges {
   orderBtnElement: HTMLButtonElement = document.createElement('button');
-
-  @Input() orderBtn: string;
+  myObj;
+  @Input() orderBtn;
 
   ngOnChanges(changeObj) {
-    this.orderBtnElement.innerText = this.orderBtn;
+    this.myObj = JSON.parse(this.orderBtn);
+    console.log(this.orderBtn, this.myObj);
+    
+    this.orderBtnElement.innerText = this.myObj.label;
   }
 
   @HostListener('mouseenter') onMouseEnter() {
@@ -20,10 +23,10 @@ export class OrderBtnDirective implements OnChanges {
     console.log('mouseleave');
   }
 
-  constructor(elementRef: ElementRef) {
+  constructor(private elementRef: ElementRef) {
     elementRef.nativeElement.appendChild(this.orderBtnElement);
     this.orderBtnElement.onclick = () => {
-      console.log('this.orderBtn:', this.orderBtn)
+      console.log('this.orderBtn:', this.myObj.isbn)
     }
   }
 

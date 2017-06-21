@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
   book: IBook;
+  buyme = {
+  }
 
   constructor(
       private booksService: BooksService,
@@ -25,6 +27,10 @@ export class BookDetailsComponent implements OnInit {
           .subscribe(b => {
             console.log('!!', b);
             this.book = b;
+            this.buyme = {
+    label: 'Buy me!',
+    isbn: this.book.isbn
+  }
           });
       });
   }
