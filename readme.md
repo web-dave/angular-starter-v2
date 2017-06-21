@@ -11,7 +11,7 @@
 
 #### hints
 <pre>
-  ng g d books/book-new
+  ng g c books/book-new
 </pre>
 
 <pre>
