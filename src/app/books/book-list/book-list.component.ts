@@ -1,4 +1,4 @@
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import { IBook } from './../shared/custom-types';
 import { BooksService } from './../shared/books.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
   books: IBook[];
-  constructor(private booksService: BooksService, private router: Router) { }
+  constructor(private booksService: BooksService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.booksService.getBooks().subscribe(books => this.books = books);
@@ -18,7 +18,7 @@ export class BookListComponent implements OnInit {
 
   selectBook(book: IBook) {
     console.log(book);
-    this.router.navigate(['/books', book.isbn]);
+    this.router.navigate([book.isbn], {relativeTo: this.route});
   }
 
 }

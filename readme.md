@@ -14,10 +14,11 @@
 <pre>
  constructor(
     private booksService: BooksService, 
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   selectBook(book: IBook) {
-    this.router.navigate(['/books', book.isbn]);
+    this.router.navigate([book.isbn], {relativeTo: this.route});
   }
 </pre>
 #### books-routing.module.ts
