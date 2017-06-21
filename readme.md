@@ -1,5 +1,6 @@
 * Generate a `leave` guard
 * implement it as a canDeactivate Guard
+* Provide it in your `BooksModule`
 * Add it to the new route
 * You need a helper to check status of this Component
 
