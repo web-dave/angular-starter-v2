@@ -7,7 +7,7 @@
 
 #### hints
 <pre>
-  ng g d books/book-edit
+  ng g c books/book-edit
 </pre>
 
 <pre>
