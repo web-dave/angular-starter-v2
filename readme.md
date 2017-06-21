@@ -10,6 +10,7 @@
   ng g c books/book-edit
 </pre>
 
+##### books-routuing.module.ts
 <pre>
     {
       path: ':isbn/edit',
@@ -17,14 +18,14 @@
     }
 </pre>
 
-##### books/book-details.component.ts
+##### book-details.component.html
 <pre>
   &lt;a [routerLink]="['edit']" class="btn btn-default btn-sm">
     &lt;span class="glyphicon glyphicon-pencil" aria-hidden="true">&lt;/span>
   &lt;/a>
 </pre>
 
-
+##### books.module.ts
 <pre>
   import { FormsModule } from '@angular/forms';
 
@@ -70,6 +71,7 @@
 
 </pre>
 
+##### book.service.ts
 <pre>
   updateBook(book): Observable<IBook> {
     const url = `${this.restRoot}/${book.isbn}`;
