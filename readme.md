@@ -3,7 +3,7 @@
 * Provide it in your `AppMocule`
 * Implement `PreloadingStrategy`, `preload()`
 * add some data to  your routes 
-* set preloadingSTrategy in routingModule
+* set preloadingStrategy in routingModule
 
 
 
@@ -12,31 +12,36 @@
   ng g class shared/preload-delayed
 </pre>
 
+#### app.module.ts
 <pre>
   providers: [PreloadDelayedService],
 </pre>
 
+#### preloadDelayed.class.ts
 <pre>
 import { PreloadingStrategy, Route } from '@angular/router';
 import { Observable } from 'rxjs';
 
-export class PreloadDelayedService {
+export class PreloadDelayedService implements PreloadingStrategy {
 
 
   preload(route: Route, fn: () => Observable<any>): Observable<any> {
-    console.log(route.data.preload);
 
-    if ((route.data !== undefined) && (route.data.preload)) {
-      return Observable.of(true).delay(3000).flatMap(() => fn());
-    }
-    if (route.data.preload) {
-      return fn();
-    }
+    if (route.data !== undefined) {
+      if (route.data.preload) {
+        return Observable.of(true).delay(3000).flatMap(() => fn());
+      }
 
+    } else {
+        return fn();
+    }
   }
+
 }
+
 </pre>
 
+#### app-routing.module.ts
 <pre>
    {
     path: 'books',
@@ -47,6 +52,7 @@ export class PreloadDelayedService {
   },
 </pre>
 
+#### app-routing.module.ts
 <pre>
 
 @NgModule({
