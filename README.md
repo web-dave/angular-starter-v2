@@ -4,7 +4,7 @@ Please install these tools to be ready:
 * Node.js http://nodejs.org/download/
 * angular-cli $ `npm i -g @angular/cli`
 * IDE / Editor I Highly recommend vscode https://code.visualstudio.com/Download
-https://sandbox.webdave.de/
+
 
 Test:
 <pre>
