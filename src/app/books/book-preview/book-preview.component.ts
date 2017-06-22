@@ -1,5 +1,5 @@
 import { IBook } from './../shared/custom-types';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'book-preview',
