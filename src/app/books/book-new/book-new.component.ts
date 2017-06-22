@@ -37,10 +37,7 @@ export class BookNewComponent implements OnInit {
   }
 
   isSaved() {
-    if (!this.saved) {
-      return !this.form.dirty;
-    }
-    return true;
+    return this.saved || !this.form.dirty;
   }
 
 }
