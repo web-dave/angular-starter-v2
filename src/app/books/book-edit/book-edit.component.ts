@@ -32,7 +32,7 @@ export class BookEditComponent implements OnInit {
   saveBook(book) {
     this.booksService.updateBook(book)
           .subscribe(() => {
-            this.router.navigate(['/books']);
+            this.router.navigate(['..'],{relativeTo:this.route});
           });
   }
 
