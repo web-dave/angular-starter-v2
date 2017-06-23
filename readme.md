@@ -40,9 +40,6 @@ export class LeaveGuard implements CanDeactivate&lt;BookNewComponent> {
 <pre>
 
   isSaved() {
-    if (!this.saved) {
-      return !this.form.dirty;
-    }
-    return true;
+    return this.saved || !this.form.dirty;
   }
 </pre>
