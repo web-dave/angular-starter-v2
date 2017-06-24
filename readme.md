@@ -1,14 +1,18 @@
 * install bookmonkey-api
+* Generate a `books` service in a shared folder of `BooksModule`
+* Provide this Service in your `BooksModule`
 * setup a npm script rest
 * check the api (http://localhost:4730/)
 * run bookmonkey-api in seperate cmd
-* Generate a `books` service in a shared folder of `BooksModule`
+* be sure `HttpModule` is imported to your `AppModule`
 * import Http from @angular/http and inject it (DI)
 
 
 #### hints
 <pre>
   npm i --save-dev bookmonkey-api
+</pre>
+<pre>
   ng g service books/shared/books -m=books/books.module
 </pre>
 
@@ -22,11 +26,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "rest": "bookmonkey-api"
+    "rest": "bookmonkey-api" // <---
   },
   ...
 </pre>
- `npm run rest`
+
 #### API:
 <pre>
 GET     /books          // Get all books
@@ -36,6 +40,27 @@ PUT     /books/:isbn    // Update a book by ISBN
 DELETE  /books/:isbn    // Delete a book by ISBN
 </pre>
 
+ `npm run rest`
+
+#### app.module.ts
+<pre>
+import { HttpModule } from '@angular/http';
+...
+
+@NgModule({
+  ... 
+  imports: [
+    ... ,
+    HttpModule  //  <---
+  ],
+  providers: [BooksService],  //<---
+  ...
+})
+export class AppModule { }
+
+</pre>
+
+#### books.service.ts
 <pre>
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
