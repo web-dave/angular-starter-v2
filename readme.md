@@ -11,6 +11,7 @@
   ng g c books/book-preview
 </pre>
 
+#### book-preview.component.ts
 <pre>
   @Input() book;
   @Output() bookselected = new EventEmitter();
