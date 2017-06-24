@@ -14,6 +14,7 @@
   ng g c books/book-new
 </pre>
 
+#### books-routing.module.ts
 <pre>
     {
       path: 'new',
@@ -28,7 +29,7 @@
   &lt;/a>
 </pre>
 
-
+#### books.module.ts
 <pre>
   import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -110,6 +111,8 @@
 &lt;/form>
 
 </pre>
+
+#### books.service.ts
 <pre>
   createBook(book): Observable<IBook> {
     const url = `${this.restRoot}`;
