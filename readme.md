@@ -6,6 +6,7 @@
 
 #### hint
 
+#### books-routing.module.ts
 <pre>
 const routes: Routes = [
    {
@@ -19,6 +20,7 @@ const routes: Routes = [
 ];
 </pre>
 
+#### app-routing.module.ts
 <pre>
 const routes: Routes = [
   {
