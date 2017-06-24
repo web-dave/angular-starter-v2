@@ -71,6 +71,16 @@
 
 </pre>
 
+##### books/book-edit.component.ts
+<pre>
+  saveBook(book) {
+    this.booksService.updateBook(book)
+          .subscribe(() => {
+            this.router.navigate(['..'],{relativeTo:this.route});
+          });
+  }
+</pre> 
+
 ##### book.service.ts
 <pre>
   updateBook(book): Observable<IBook> {
