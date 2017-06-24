@@ -28,7 +28,7 @@ ng g c about/about
   &lt;router-outlet>&lt;/router-outlet>
 </pre>
 
-#### BooksModule 
+#### books.module.ts 
 <pre>
 @NgModule({
   imports: [
