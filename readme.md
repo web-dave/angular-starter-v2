@@ -1,5 +1,6 @@
 * Generate a `BookListComponent` into your Books Module
 * Set `/books` as a root of ChildRouting
+* Don't forget to add a `router-outlet` to `books` Component
 * Check the DevTools and the hints!
 
 
@@ -7,7 +8,7 @@
 
 `ng g c books/book-list`
 
-#### my-nav.component.html
+#### app-routing.module.ts
 <pre>
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
 ];
 </pre>
 
+#### books.component.html
 <pre>
   &lt;p>
     book works!
