@@ -9,6 +9,7 @@
   ng g c books/book-list
 </pre>
 
+#### book-list.component.ts
 <pre>
   constructor(private booksService: BooksService) { }
 </pre>
@@ -19,6 +20,7 @@
   }
 </pre>
 
+#### book-list.component.html
 <pre>
   &lt;ul *ngIf="books">
     &lt;li *ngFor="let book of books">{{book.title}}&lt;/li>
