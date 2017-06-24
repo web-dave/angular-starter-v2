@@ -1,3 +1,4 @@
+import { PagesPipe } from './../shared/pages.pipe';
 import { IBook } from './../shared/custom-types';
 import { BooksService } from './../shared/books.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -25,6 +26,7 @@ export class BookDetailsComponent implements OnInit {
           .subscribe(b => {
             console.log('!!', b);
             this.book = b;
+            console.log(new PagesPipe().transform(b.numPages,'S.:'));
           });
       });
   }
