@@ -10,18 +10,38 @@
 
 #### order-btn.directive.ts
 <pre>
- 
-  @Input()
-  set orderBtn(value: string) {
-    this.orderBtnElement.innerText = value;
+import { Directive, Input, ElementRef, OnChanges, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[orderBtn]'
+})
+export class OrderBtnDirective implements OnChanges {
+  orderBtnElement: HTMLButtonElement = document.createElement('button');
+  myObj;
+  @Input() orderBtn;
+
+  ngOnChanges(changeObj) {
+  
+    this.orderBtnElement.innerText = this.orderBtn;
+  }
+
+  @HostListener('mouseenter') onMouseEnter() {
+    console.log('mouseenter');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    console.log('mouseleave');
+  }
+
+  constructor(private elementRef: ElementRef) {
+    elementRef.nativeElement.appendChild(this.orderBtnElement);
     this.orderBtnElement.onclick = () => {
-      console.log('buy me!!!')
+      console.log('this.orderBtn:', this.orderBtn)
     }
   }
-  orderBtnElement: HTMLButtonElement = document.createElement('button');
-  constructor(elementRef: ElementRef) {
-    elementRef.nativeElement.appendChild(this.orderBtnElement);
-  }
+
+}
+
 </pre>
 
 #### book-details.component.html
