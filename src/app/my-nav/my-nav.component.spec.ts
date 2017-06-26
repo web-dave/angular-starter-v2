@@ -1,3 +1,6 @@
+import { APP_BASE_HREF } from '@angular/common';
+import { AboutModule } from './../about/about.module';
+import { AppRoutingModule } from './../app-routing.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyNavComponent } from './my-nav.component';
@@ -8,9 +11,11 @@ describe('MyNavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyNavComponent ]
+      declarations: [MyNavComponent],
+      imports: [AppRoutingModule, AboutModule],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

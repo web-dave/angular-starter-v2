@@ -1,3 +1,7 @@
+import { BooksServiceStub } from './../shared/books.stub.service';
+
+import { BooksService } from './../shared/books.service';
+import { BookPreviewComponent } from './../book-preview/book-preview.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookListComponent } from './book-list.component';
@@ -8,9 +12,10 @@ describe('BookListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookListComponent ]
+      declarations: [BookListComponent, BookPreviewComponent],
+      providers: [{ provide: BooksService, useClass: BooksServiceStub }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,3 +28,5 @@ describe('BookListComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
