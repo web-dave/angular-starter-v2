@@ -42,7 +42,7 @@ DELETE  /books/:isbn    // Delete a book by ISBN
 
  `npm run rest`
 
-#### app.module.ts
+#### books.module.ts
 <pre>
 import { HttpModule } from '@angular/http';
 ...
@@ -56,7 +56,7 @@ import { HttpModule } from '@angular/http';
   providers: [BooksService],  //<---
   ...
 })
-export class AppModule { }
+export class BooksModule { }
 
 </pre>
 
