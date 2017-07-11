@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
-import {BooksService} from '../shared/books.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BooksService } from '../shared/books.service';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
@@ -13,7 +13,8 @@ export class BookNewComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private booksService: BooksService,
-      private router: Router,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -29,9 +30,9 @@ export class BookNewComponent implements OnInit {
 
   saveBook() {
     this.booksService.createBook(this.form.value)
-          .subscribe(() => {
-            this.router.navigate(['/books']);
-          });
+      .subscribe(() => {
+        this.router.navigate(['..'],{relativeTo: this.route});
+      });
   }
 
 }
