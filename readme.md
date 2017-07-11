@@ -25,7 +25,7 @@ import { Observable } from 'rxjs';
 export class PreloadDelayedService implements PreloadingStrategy {
 
 
-  preload(route: Route, fn: () => Observable<any>): Observable<any> {
+  preload(route: Route, fn: () => Observable&lt;any>): Observable&lt;any> {
 
     if (route.data !== undefined) {
       if (route.data.preload) {
