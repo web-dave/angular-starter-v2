@@ -19,7 +19,7 @@ let bookMock = {
   }
 }
 
-fdescribe('BooksService', () => {
+describe('BooksService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
