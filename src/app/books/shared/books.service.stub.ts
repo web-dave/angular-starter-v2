@@ -1,8 +1,7 @@
 import { IBook } from './custom-types';
 import { Observable } from 'rxjs';
 
-export class BooksServiceStub {
-  books = [
+export const booksStub = [
     {
       'title': 'Design Patterns',
       'subtitle': 'Elements of Reusable Object-Oriented Software',
@@ -41,12 +40,14 @@ export class BooksServiceStub {
     }
   ]
 
+export class BooksServiceStub {
+
   getBooks(): Observable<IBook[]> {
-    return Observable.of(this.books);
+    return Observable.of(booksStub);
   }
 
   getBook(isbn): Observable<IBook> {
-    return Observable.of(this.books[0]);
+    return Observable.of(booksStub[0]);
   }
 
   updateBook(book): Observable<IBook> {
