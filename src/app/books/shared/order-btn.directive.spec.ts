@@ -26,7 +26,7 @@ describe('A component with OrderBtnDirective', () => {
     sut = element.injector.get(OrderBtnDirective);
   });
 
-  fdescribe('orderBtn', () => {
+  describe('orderBtn', () => {
     it('should be a button', () => {
       expect(sut.orderBtnElement.tagName).toBe('BUTTON');
     });
