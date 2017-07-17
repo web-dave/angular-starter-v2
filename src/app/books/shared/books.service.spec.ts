@@ -1,3 +1,4 @@
+import {HttpModule} from '@angular/http';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { BooksService } from './books.service';
@@ -5,7 +6,8 @@ import { BooksService } from './books.service';
 describe('BooksService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BooksService]
+      providers: [BooksService],
+      imports: [HttpModule]
     });
   });
 
