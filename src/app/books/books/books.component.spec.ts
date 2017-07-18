@@ -1,14 +1,7 @@
+import { DummyComponent } from './../shared/components.stubs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
 import { BooksComponent } from './books.component';
-
-@Component({
-  template: '',
-  selector: 'dummy'
-})
-class DummyComponent {
-}
 
 describe('BooksComponent', () => {
   let component: BooksComponent;
