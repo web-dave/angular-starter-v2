@@ -30,8 +30,6 @@ export class BooksService {
   }
 
   createBook(book): Observable<IBook> {
-    console.log(book);
-
     const url = `${this.restRoot}`;
     return this.http.post(url, book)
       .map(res => res.json());
