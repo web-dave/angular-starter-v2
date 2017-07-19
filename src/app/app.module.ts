@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { MyNavComponent } from './my-nav/my-nav.component';
+import { OnpushComponent } from './onpush/onpush.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyNavComponent
+    MyNavComponent,
+    OnpushComponent
   ],
   imports: [
     BrowserModule,
