@@ -15,12 +15,12 @@ describe('MyNavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyNavComponent, DummyComponent ],
+      declarations: [MyNavComponent, DummyComponent],
       imports: [
         RouterTestingModule.withRoutes([{ path: 'edit', component: DummyComponent }])
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
