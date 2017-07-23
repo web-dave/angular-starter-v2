@@ -14,7 +14,7 @@ class MockComponent {
 describe('A component with OrderBtnDirective', () => {
   let fixture: ComponentFixture<MockComponent>;
   let element: DebugElement;
-  let sut: OrderBtnDirective;
+  let inst: OrderBtnDirective;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -23,23 +23,26 @@ describe('A component with OrderBtnDirective', () => {
 
     fixture = TestBed.createComponent(MockComponent);
     element = fixture.debugElement.query(By.directive(OrderBtnDirective));
-    sut = element.injector.get(OrderBtnDirective);
+    inst = element.injector.get(OrderBtnDirective);
   });
 
   describe('orderBtn', () => {
     it('should be a button', () => {
-      expect(sut.orderBtnElement.tagName).toBe('BUTTON');
+      expect(inst.orderBtnElement.tagName).toBe('BUTTON');
     });
 
     it('should show `Kauf mich`', () => {
       fixture.detectChanges();
-      expect(sut.orderBtnElement.innerText).toBe('Kauf Mich!');
+      expect(inst.orderBtnElement.innerText).toBe('Kauf Mich!');
     });
 
-    it('should write a console.log if cklicked', () => {
+    fit('should write a console.log if cklicked', () => {
+      fixture.detectChanges();
       spyOn(console, 'log');
-      sut.orderBtnElement.click();
-      expect(console.log).toHaveBeenCalled();
+      inst.orderBtnElement.click();
+      expect(console.log).toHaveBeenCalledWith('this.orderBtn:', 'Kauf Mich!');
     });
   });
 });
+
+
