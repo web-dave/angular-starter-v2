@@ -36,7 +36,7 @@ describe('A component with OrderBtnDirective', () => {
       expect(inst.orderBtnElement.innerText).toBe('Kauf Mich!');
     });
 
-    fit('should write a console.log if cklicked', () => {
+    fit('should write a console.log if clicked', () => {
       fixture.detectChanges();
       spyOn(console, 'log');
       inst.orderBtnElement.click();
