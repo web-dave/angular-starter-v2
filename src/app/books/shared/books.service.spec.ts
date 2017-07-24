@@ -1,4 +1,4 @@
-import { booksStub } from './books.service.stub';
+import { booksStub, bookMock } from './books.service.stub';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { it } from '@angular/cli/lib/ast-tools/spec-utils';
 import { BaseRequestOptions, Http, HttpModule, Response, ResponseOptions } from '@angular/http';
@@ -6,20 +6,8 @@ import { async, inject, TestBed } from '@angular/core/testing';
 
 import { BooksService } from './books.service';
 
-const bookMock = {
-  'title': 'Design Patterns123',
-  'subtitle': 'Elements of Reusable Object-Oriented Software',
-  'isbn': '978-0-20163-361-0',
-  'abstract': 'Capturing a wealth of experience about the design of object-oriented software, ...',
-  'numPages': 395,
-  'author': 'Erich Gamma / Richard Helm / Ralph E. Johnson / John Vlissides',
-  'publisher': {
-    'name': 'Addison-Wesley',
-    'url': 'http://www.addison-wesley.de/'
-  }
-}
 
-fdescribe('BooksService', () => {
+describe('BooksService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [

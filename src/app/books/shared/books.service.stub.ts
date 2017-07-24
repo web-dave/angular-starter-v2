@@ -40,6 +40,19 @@ export const booksStub = [
     }
   ]
 
+export const bookMock = {
+  'title': 'Design Patterns123',
+  'subtitle': 'Elements of Reusable Object-Oriented Software',
+  'isbn': '978-0-20163-361-0',
+  'abstract': 'Capturing a wealth of experience about the design of object-oriented software, ...',
+  'numPages': 395,
+  'author': 'Erich Gamma / Richard Helm / Ralph E. Johnson / John Vlissides',
+  'publisher': {
+    'name': 'Addison-Wesley',
+    'url': 'http://www.addison-wesley.de/'
+  }
+}
+
 export class BooksServiceStub {
 
   getBooks(): Observable<IBook[]> {
