@@ -1,4 +1,4 @@
-import { DummyComponent } from './../shared/components.stubs';
+import { DummyComponent } from './../shared/components.stubs.spec';
 import { BooksServiceStub } from '../shared/books.service.stub';
 import { BooksService } from '../shared/books.service';
 import { RouterTestingModule } from '@angular/router/testing';

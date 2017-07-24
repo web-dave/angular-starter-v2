@@ -1,4 +1,4 @@
-import { DummyComponent, BookPreviewComponent, OrderBtnDirective } from './../shared/components.stubs';
+import { DummyComponent, BookPreviewComponent, OrderBtnDirective } from './../shared/components.stubs.spec';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BooksServiceStub } from './../shared/books.service.stub';
 import { BooksService } from '../shared/books.service';

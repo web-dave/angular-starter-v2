@@ -1,4 +1,4 @@
-import { DummyComponent, PagesPipe } from './../shared/components.stubs';
+import { DummyComponent, PagesPipe } from './../shared/components.stubs.spec';
 import { BooksService } from '../shared/books.service';
 import { BooksServiceStub } from './../shared/books.service.stub';
 import { RouterTestingModule } from '@angular/router/testing';
