@@ -24,21 +24,22 @@
     ]
   },
   "dynamic": {
-   "group": [
-     {
-       "name": "bookmonkey",
-       "urls": {
-         "http://localhost:4730/books": {
-           "match": "prefix"
-         }
-       },
-       "cache": {
-         "optimizeFor": "performance",
-         "strategy": "fifo",
-         "maxAgeMs": 3600000,
-         "maxEntries": 2
-       }
-     }
-   ]
- }
+    "group": [
+      {
+        "name": "bookmonkey",
+        "urls": {
+          "http://localhost:4730/books": {
+            "match": "prefix"
+          }
+        },
+        "cache": {
+          "optimizeFor": "freshness",
+          "strategy": "lru",
+          "maxAgeMs": 3600000,
+          "maxEntries": 20,
+          "networkTimeoutMs": 1000
+        }
+      }
+    ]
+  }
 }
