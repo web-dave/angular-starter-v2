@@ -13,6 +13,32 @@
       }
     }
   },
-  "external": {},
-  "dynamic": {}
+  "external": {
+    "urls": [
+      {
+        "url": "https://fonts.googleapis.com/icon?family=Material+Icons"
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/materialicons/v23/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2"
+      }
+    ]
+  },
+  "dynamic": {
+   "group": [
+     {
+       "name": "bookmonkey",
+       "urls": {
+         "http://localhost:4730/books": {
+           "match": "prefix"
+         }
+       },
+       "cache": {
+         "optimizeFor": "performance",
+         "strategy": "fifo",
+         "maxAgeMs": 3600000,
+         "maxEntries": 2
+       }
+     }
+   ]
+ }
 }
