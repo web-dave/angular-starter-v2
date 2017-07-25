@@ -2,6 +2,7 @@ import { PreloadDelayedService } from './shared/preload-delayed.service';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AboutModule } from './about/about.module';
@@ -17,7 +18,8 @@ import { MyNavComponent } from './my-nav/my-nav.component';
     BrowserModule,
     AppRoutingModule,
     AboutModule,
-    HttpModule
+    HttpModule,
+    ServiceWorkerModule
   ],
   providers: [PreloadDelayedService],
   bootstrap: [AppComponent]
