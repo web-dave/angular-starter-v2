@@ -26,6 +26,8 @@ import { MyNavComponent } from './my-nav/my-nav.component';
 })
 export class AppModule {
   constructor(sw: NgServiceWorker) {
+
+    // listen for updates
     sw.updates.subscribe(event => {
       console.log('-->', event)
       if (event.type === 'pending') {
