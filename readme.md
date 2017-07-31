@@ -1,17 +1,43 @@
-* Play with `ViewEncapsulation`
-* Check Developer tools
+* Install `redux` and `angular-redux`
+* create a file `store.ts` with `appSTore` and `rootReducer`
+* import redux into your app
 
-<pre>
-import { Component, ViewEncapsulation } from '@angular/core';
 
-@Component({
-  selector: 'my-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated
+
+```sh
+npm install --save redux @angular-redux/store
+```
+
+#### store.ts
+```typescript
+export interface IAppState {}
+
+export const appState: IAppState = {}
+
+export function rootReducer(state, action) {
+ return state;
+}
+```
+
+#### app.module.ts
+```typescript
+import { appState, IAppState, rootReducer } from './redux/store';
+...
+@NgModule({
+ declarations: [...],
+ imports: [
+   ...,
+   NgReduxModule
+ ],
+ ...
 })
-export class AppComponent {
-  title = 'my';
+export class AppModule {
+
+  constructor(ngRedux: NgRedux<IAppState>){
+    ngRedux.configureStore(rootReducer, appState)
+
+  }
+
 }
 
-</pre>
+```

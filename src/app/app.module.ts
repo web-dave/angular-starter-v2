@@ -27,6 +27,6 @@ import { MyNavComponent } from './my-nav/my-nav.component';
 })
 export class AppModule {
   constructor(ngRedux: NgRedux<IAppState>) {
-    ngRedux.configureStore(rootReducer, appState)
+    ngRedux.configureStore(rootReducer, appState);
   }
 }
