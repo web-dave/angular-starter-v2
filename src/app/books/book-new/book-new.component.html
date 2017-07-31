@@ -1,7 +1,7 @@
-<form [formGroup]="form" (ngSubmit)="saveBook()">
+<form [formGroup]="form" (ngSubmit)="saveBook()" >
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" id="title" formControlName="title">
+    <input type="text" id="title" formControlName="title" (blur)="checkForm()">
     <div [hidden]="!form.get('title').hasError('required')">
       Enter a tilte
     </div>
@@ -9,17 +9,17 @@
   <div class="form-group">
 
     <label for="isbn">ISBN</label>
-    <input type="text" id="isbn" formControlName="isbn">
+    <input type="text" id="isbn" formControlName="isbn"  (blur)="checkForm()">
   </div>
   <fieldset formGroupName="publisher">
     <div class="form-group">
       <label>Name:</label>
-      <input type="text" formControlName="name">
+      <input type="text" formControlName="name"  (blur)="checkForm()">
     </div>
     <div class="form-group">
 
       <label>Url:</label>
-      <input type="text" formControlName="url">
+      <input type="text" formControlName="url"  (blur)="checkForm()">
     </div>
 
   </fieldset>

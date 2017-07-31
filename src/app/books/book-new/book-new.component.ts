@@ -1,7 +1,10 @@
+import { Observable } from 'rxjs/Rx';
+import { FORM_DIRTY, FORM_PRISTINE, IAppState } from '../../redux/store';
 import { Router } from '@angular/router';
 import { BooksService } from '../shared/books.service';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { NgRedux } from '@angular-redux/store';
 
 @Component({
   selector: 'book-new',
@@ -11,10 +14,12 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class BookNewComponent implements OnInit {
   form: FormGroup;
   saved = false;
+  dirty;
   constructor(
     private formBuilder: FormBuilder,
     private booksService: BooksService,
     private router: Router,
+    private ngRedux: NgRedux<IAppState>
   ) { }
 
   ngOnInit() {
@@ -28,19 +33,21 @@ export class BookNewComponent implements OnInit {
     });
   }
 
+  checkForm() {
+    console.log('-->', this.form.dirty)
+    if (this.form.dirty) {
+      this.ngRedux.dispatch(FORM_DIRTY)
+    } else {
+      this.ngRedux.dispatch(FORM_PRISTINE)
+    }
+  }
+
   saveBook() {
     this.booksService.createBook(this.form.value)
       .subscribe(() => {
-        this.saved = true;
+        this.ngRedux.dispatch(FORM_PRISTINE)
         this.router.navigate(['/books']);
       });
-  }
-
-  isSaved() {
-    if (!this.saved) {
-      return this.form.dirty;
-    }
-    return true;
   }
 
 }
