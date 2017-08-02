@@ -4,7 +4,7 @@ import { ExternalContentCache } from '@angular/service-worker/plugins/external';
 import { RouteRedirection } from '@angular/service-worker/plugins/routes';
 import { StaticContentCache } from '@angular/service-worker/plugins/static';
 import { Push } from '@angular/service-worker/plugins/push';
-import { SyncListeners } from './plugins/sync';
+import { ClickNotification } from './plugins/clickNotification';
 bootstrapServiceWorker({
   manifestUrl: 'ngsw-manifest.json',
   plugins: [
@@ -16,6 +16,6 @@ bootstrapServiceWorker({
     ExternalContentCache(),
     RouteRedirection(),
     Push(),
-    SyncListeners()
+    ClickNotification()
   ],
 });

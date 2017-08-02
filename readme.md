@@ -5,7 +5,11 @@
 * install dependencies
 * setup script
 * add build script to `package.json`
-* test it
+* create a `clickNotification.js`
+* it exports a class and a function `code below`
+* register `ClickNotification` as a plugin in your ServiceWorker
+* register eventhandler for `notificationclick` and `notificationclose`
+* build and test it.
 
 #### everthing should work no changes until now
 
@@ -68,6 +72,77 @@ rollup.rollup({
 ```
 
 ```sh
-npm run build-prod
+touch src/ngsw/plugins/clickNotification.js
+```
+#### clickNotification.js
+
+```javascript
+
+export function ClickNotification () {
+  return (worker) => new ClickNotificationImpl(worker);
+}
+
+export class ClickNotificationImpl {
+
+  setup (ops) {}
+
+  constructor (sw) {}
+
+}
+
 ```
 
+#### basic.js
+
+```javascript
+...
+import { ClickNotification } from './plugins/clickNotification';
+bootstrapServiceWorker({
+  manifestUrl: 'ngsw-manifest.json',
+  plugins: [
+    StaticContentCache(),
+    Dynamic([
+      new FreshnessStrategy(),
+      new PerformanceStrategy(),
+    ]),
+    ExternalContentCache(),
+    RouteRedirection(),
+    Push(),
+    ClickNotification()
+  ],
+});
+```
+
+#### clickNotification,js
+
+```javascript
+  notificationclick(){
+    self.addEventListener('notificationclick', function (event) {
+      console.log('notificationclick: ', event);
+    });
+  }
+```
+
+#### clickNotification,js
+
+```javascript
+  notificationclose(){
+    self.addEventListener('notificationclose', function (event) {
+      console.log('notificationclose');
+    });
+  }
+```
+
+#### clickNotification,js
+
+```javascript
+
+  constructor(sw) {
+    this.notificationclick();
+    this.notificationclose();
+  }
+```
+
+```sh
+npm run build-ngsw
+```

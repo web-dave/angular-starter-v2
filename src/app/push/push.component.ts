@@ -40,23 +40,7 @@ export class PushComponent implements OnInit {
   }
 
   sendMessage(msg) {
-    if ('SyncManager' in window) {
-      navigator.serviceWorker.ready.then(function (swRegistration) {
-        swRegistration.sync.register('send-push')
-          .then(function () {
-            console.log('[push.component sendMessage]: Background sync registered');
-          })
-          .catch(function (error) {
-            // system was unable to register for a sync,
-            // this could be an OS-level restriction
-            console.log('[push.component sendMessage]: Error registering Background sync', error);
-          })
-      })
       this.sendPush(msg);
-    } else {
-      console.log('[push.component sendMessage]: Background sync isn`t supported in this browser')
-      this.sendPush(msg);
-    }
   }
 
 }
