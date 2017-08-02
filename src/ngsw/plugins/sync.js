@@ -48,19 +48,20 @@ export class SyncListenersImpl {
 
   fetchEvent() {
     self.addEventListener('fetch', (event) => {
+        console.log('event:', event);
 
       // Match requests for data and handle them separately
       if ((event.request.url.indexOf('msg/') != -1)&& (event.method === 'POST')) {
-        console.log('event:', event);
         // idbKeyval.set('send-post', event.request.body)
         // .then(function () {});
       }
     });
   }
 
-  constructor() {
+  constructor(sw) {
+    console.log('[sw]:',sw);
     this.syncEvent();
-    this.fetchEvent();
+    // this.fetchEvent();
   }
 
 }
