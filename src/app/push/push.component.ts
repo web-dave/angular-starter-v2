@@ -34,30 +34,27 @@ export class PushComponent implements OnInit {
 
   sendPush(msg) {
     this.push.sendPush(msg).subscribe(data => {
-      console.log('[SW Registration]: Message send')
+      console.log('[push.component sendPush]: Message send')
       msg = { title: '', message: '' };
-      window.localStorage.removeItem('send-push');
     })
   }
 
   sendMessage(msg) {
     if ('SyncManager' in window) {
-
       navigator.serviceWorker.ready.then(function (swRegistration) {
         swRegistration.sync.register('send-push')
           .then(function () {
-            window.localStorage.setItem('send-push', msg);
-            console.log('[SW Registration]: Background sync registered')
+            console.log('[push.component sendMessage]: Background sync registered');
           })
           .catch(function (error) {
             // system was unable to register for a sync,
             // this could be an OS-level restriction
-            console.log('[SW Registration]: Error registering Background sync', error)
+            console.log('[push.component sendMessage]: Error registering Background sync', error);
           })
       })
       this.sendPush(msg);
     } else {
-      console.log('[SW Registration]: Background sync isn`t supported in this browser')
+      console.log('[push.component sendMessage]: Background sync isn`t supported in this browser')
       this.sendPush(msg);
     }
   }
