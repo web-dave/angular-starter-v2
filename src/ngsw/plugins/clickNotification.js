@@ -11,7 +11,6 @@ export class ClickNotificationImpl {
   notificationclick(){
     self.addEventListener('notificationclick', function (event) {
       console.log('notificationclick: ', event);
-      event.notification.close();
     });
   }
 

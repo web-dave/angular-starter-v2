@@ -7,8 +7,8 @@
 * add build script to `package.json`
 * create a `clickNotification.js`
 * it exports a class and a function `code below`
-* register `ClickNotification` as a plugin in your ServiceWorker
 * register eventhandler for `notificationclick` and `notificationclose`
+* register `ClickNotification` as a plugin in your ServiceWorker
 * build and test it.
 
 #### everthing should work no changes until now
