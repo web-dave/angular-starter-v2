@@ -51,7 +51,7 @@ export class SyncListenersImpl {
         console.log('fetch event:', event);
 
       // Match requests for data and handle them separately
-      if ((event.request.url.indexOf('/msg/') != -1)&& (event.method === 'POST')) {
+      if ((event.request.url.indexOf('/msg') != -1)&& (event.method === 'POST')) {
         // idbKeyval.set('send-post', event.request.body)
         // .then(function () {});
       }
