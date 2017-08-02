@@ -34,6 +34,7 @@ export class PushComponent implements OnInit {
 
   sendPush(msg) {
     this.push.sendPush(msg).subscribe(data => {
+      console.log('[SW Registration]: Message send')
       msg = { title: '', message: '' };
       window.localStorage.removeItem('send-push');
     })
@@ -55,7 +56,6 @@ export class PushComponent implements OnInit {
           })
       })
       this.sendPush(msg);
-      console.log('[SW Registration]: Background sync initiated')
     } else {
       console.log('[SW Registration]: Background sync isn`t supported in this browser')
       this.sendPush(msg);

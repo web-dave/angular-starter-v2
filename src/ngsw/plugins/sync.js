@@ -1,4 +1,3 @@
-
 export function SyncListeners() {
   return (worker) => new SyncListenersImpl(worker);
 }
