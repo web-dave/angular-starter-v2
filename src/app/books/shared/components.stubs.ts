@@ -13,7 +13,7 @@ export class DummyComponent {
 })
 export class BookPreviewComponent {
   @Input() book: any;
-  @Output() @Output() bookselected = new EventEmitter<any>();
+  @Output() bookselected = new EventEmitter<any>();
 }
 
 @Directive({
