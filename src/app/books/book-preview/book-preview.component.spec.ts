@@ -24,7 +24,7 @@ describe('BookPreviewComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should raise bookselected event when clicked', () => {
+  it('should raise bookselected event when clicked', () => {
     let bookselected: IBook;
     const expectedHero = component.book;
     component.bookselected.subscribe((book: IBook) => bookselected = book);
