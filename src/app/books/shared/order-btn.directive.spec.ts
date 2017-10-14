@@ -33,6 +33,7 @@ describe('A component with OrderBtnDirective', () => {
 
     it('should show `Kauf mich`', () => {
       fixture.detectChanges();
+      element.triggerEventHandler('mouseenter',{});
       expect(inst.orderBtnElement.innerText).toBe('Kauf Mich!');
     });
 
