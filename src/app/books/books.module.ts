@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { LeaveGuard } from './shared/leave.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,7 +20,8 @@ import { BookNewComponent } from './book-new/book-new.component';
     CommonModule,
     BooksRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [],
   declarations: [
