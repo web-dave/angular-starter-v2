@@ -1,5 +1,4 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClientModule } from '@angular/common/http';
 import { booksStub, bookMock } from './books.service.stub';
 import { it } from '@angular/cli/lib/ast-tools/spec-utils';
 import { async, inject, TestBed } from '@angular/core/testing';
@@ -12,10 +11,10 @@ describe('BooksService', () => {
     // setup @ngModule for testing
     TestBed.configureTestingModule({
       providers: [BooksService],
-      imports: [HttpClientModule, HttpClientTestingModule]
+      imports: [HttpClientTestingModule]
     });
   });
-
+  
   // check after each test there is no pending(open) request
   afterEach(inject([HttpTestingController], (backend: HttpTestingController) => {
     backend.verify();
