@@ -13,13 +13,15 @@ import { PagesPipe } from './shared/pages.pipe';
 import { OrderBtnDirective } from './shared/order-btn.directive';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookNewComponent } from './book-new/book-new.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     BooksRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [],
   declarations: [
